@@ -1,5 +1,6 @@
 package com.my.demo5.dao;
 
+import com.github.pagehelper.Page;
 import com.my.demo5.po.Product;
 import com.my.demo5.po.ProductExample;
 import java.util.List;
@@ -20,6 +21,10 @@ public interface ProductMapper {
 
     Product selectByPrimaryKey(Integer productId);
 
+    List<Product> selectAll();
+
+    Page<Product> selectWithPage();
+
     int updateByExampleSelective(@Param("record") Product record, @Param("example") ProductExample example);
 
     int updateByExample(@Param("record") Product record, @Param("example") ProductExample example);
@@ -27,4 +32,8 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    Page<Product> selectWithPageAndName(String name);
+
+    int batchDelete(@Param("productIds") List<Integer> productIds);
 }

@@ -1,6 +1,8 @@
 package com.my.demo5.po;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private Integer productId;
 
     private String name;
